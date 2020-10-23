@@ -1,4 +1,9 @@
-h1 {
-    color: #27aedb;
-    text-align: center;
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d3d0cb;
 }
