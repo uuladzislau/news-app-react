@@ -1,40 +1,46 @@
-import React, {Component} from "react"
-import News from "./News"
+import React from "react"
+import styled from "styled-components"
 
-import '../styles/NewsFeed.css'
+const NewsFeedContent = styled.section`
+    margin: 6em 0 0 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 1000px;
+`;
 
-class NewsFeed extends Component {
+const Alert = styled.div`
+    margin: 6em auto 0 auto;
+    width: 1000px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+`;
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: new Date()
-        };
-    }
+const NothingToDisplay = styled.p`
+    margin: 0;
+    padding: 0;
+    color: ${props => props.theme.onBackgroundColor};
+    font-size: 24px;
+    font-family: ${props => props.theme.mainFontFamily};
+    text-transform: uppercase;
+`;
 
-    render() {
+const NewsFeed = (props) => {
+
+    if (props.children.length == 0) {
         return (
-            <div class="news-feed-wrapper">
-                <div class="news-search-wrapper">
-                    <p>I'm NewsFeed</p>
-                </div>
-                <div class="news-feed">
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                </div>
-            </div>
-        );
+            <Alert>
+                <NothingToDisplay>There are no articles matching your request</NothingToDisplay>
+            </Alert>
+        )
     }
+
+    return (
+        <NewsFeedContent>
+            {props.children}
+        </NewsFeedContent>
+    )
 }
 
 export default NewsFeed;

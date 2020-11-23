@@ -1,23 +1,31 @@
-import React, {Component} from "react"
+import React from "react"
+import styled from "styled-components"
 
-import '../styles/Header.css'
+const HeaderWrapper = styled.header`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
-class Header extends Component {
+const Title = styled.h1`
+    margin: 1.5em 0 0.5em 0;
+    padding: 0;
+    color: ${props => props.theme.onBackgroundColor};
+    font-size: 72px;
+    font-weight: bold;
+    font-family: ${props => props.theme.mainFontFamily};
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+`
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: new Date()
-        };
-    }
-
-    render() {
-        return (
-            <header>
-                <h1>News React Application</h1>
-            </header>
-        );
-    }
-}
+const Header = () => {
+    return (
+        <HeaderWrapper>
+            <Title>News App React</Title>
+        </HeaderWrapper>
+    )
+};
 
 export default Header;

@@ -1,5 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./components/App.js"
+import { ThemeProvider } from "styled-components"
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+import App from "./components/App.js"
+import * as theme from "./config/theme"
+
+ReactDOM.render(
+    <ThemeProvider theme={theme}>
+        <App/>
+    </ThemeProvider>,
+    document.getElementById("root")
+);
